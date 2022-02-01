@@ -9,19 +9,12 @@ pub enum CalculatorInput {
 
 pub fn evaluate(inputs: &[CalculatorInput]) -> Option<i32> {
     let mut operation_stack = vec![];
-    let mut computed = false;
-    if inputs.len() == 1{
-        if let Some(&CalculatorInput::Value(v)) = inputs.get(0) {
-            return Some(v);
-        }
-    }
     for input in inputs{
         match input {
             &CalculatorInput::Value(x) => {
                 operation_stack.push(x)
             },
             input => {
-                computed = true;
                 if operation_stack.len() < 2{
                     return  None;
                 }
@@ -63,7 +56,7 @@ pub fn evaluate(inputs: &[CalculatorInput]) -> Option<i32> {
             }
         };
     }
-    if operation_stack.len() < 1 || ! computed {
+    if operation_stack.len() != 1 {
         None
     }
     else{
