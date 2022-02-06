@@ -38,7 +38,7 @@ pub fn anagrams_for<'a>(word: &str, possible_anagrams: &[&'a str]) -> HashSet<&'
     let mut confirmed_anagrams = HashSet::new();
     for potential_anagram in possible_anagrams {
         if is_valid_anagram(word, potential_anagram) {
-            confirmed_anagrams.insert(potential_anagram.clone());
+            confirmed_anagrams.insert(*potential_anagram);
         }
     }
 
