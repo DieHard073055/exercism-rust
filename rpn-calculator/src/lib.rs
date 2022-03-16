@@ -18,34 +18,28 @@ pub fn evaluate(inputs: &[CalculatorInput]) -> Option<i32> {
                 if operation_stack.len() < 2{
                     return  None;
                 }
+                let a = operation_stack.pop().unwrap();
+                let b = operation_stack.pop().unwrap();
                 match input{
                     &CalculatorInput::Add => {
-                        let a = operation_stack.pop().unwrap();
-                        let b = operation_stack.pop().unwrap();
                         operation_stack.push(
                             a + b
                         )
                         
                     },
                     &CalculatorInput::Subtract => {
-                        let a = operation_stack.pop().unwrap();
-                        let b = operation_stack.pop().unwrap();
                         operation_stack.push(
                             b - a
                         )
                         
                     },
                     &CalculatorInput::Multiply => {
-                        let a = operation_stack.pop().unwrap();
-                        let b = operation_stack.pop().unwrap();
                         operation_stack.push(
                             a * b
                         )
                         
                     },
                     &CalculatorInput::Divide => {
-                        let a = operation_stack.pop().unwrap();
-                        let b = operation_stack.pop().unwrap();
                         operation_stack.push(
                             b / a
                         )
