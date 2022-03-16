@@ -47,7 +47,6 @@ fn sublist_at_end() {
 }
 
 #[test]
-#[ignore]
 fn partially_matching_sublist_at_start() {
     assert_eq!(Comparison::Sublist, sublist(&[1, 1, 2], &[1, 1, 1, 2]));
 }
@@ -60,7 +59,6 @@ fn sublist_early_in_huge_list() {
 }
 
 #[test]
-#[ignore]
 fn huge_sublist_not_in_huge_list() {
     let v1: Vec<u64> = (10..1_000_001).collect();
     let v2: Vec<u64> = (1..1_000_000).collect();
@@ -103,6 +101,9 @@ fn recurring_values_sublist() {
 fn recurring_values_unequal() {
     assert_eq!(
         Comparison::Unequal,
+        // 1 = 2 && 1 = 3
+        // 2 = 2 && 2 = 4
+        // 3 = 1 && 3 = 3
         sublist(&[1, 2, 1, 2, 3], &[1, 2, 3, 1, 2, 3, 2, 3, 2, 1])
     );
 }
